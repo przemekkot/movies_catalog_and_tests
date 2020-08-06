@@ -4,6 +4,19 @@ import random
 from random import shuffle
 
 
+#Ta funkcja jest tu umieszczona na potrzeby zadania z modulu 14.3
+def call_tmdb_api(endpoint):
+   full_url = f"https://api.themoviedb.org/3/{endpoint}"
+   api_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MTE4Y2NkODY1MWUyMDczOWZhYTRlMzU4Y2I2ZDIwZCIsInN1YiI6IjVmMDU2OGQwMjBhZjc3MDAzNWU3N2IzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VnK58vvU8DOSdgzhlxiHt-PfHTwIVpsXelEW4k47kgA"
+   headers = {
+       "Authorization": f"Bearer {api_token}"
+   }
+   response = requests.get(full_url, headers=headers)
+   response.raise_for_status()
+   return response.json()
+#koniec funkcji umieszczonej na potrzeby zadania z modulu 14.3
+
+
 def get_popular_movies():
     endpoint = "https://api.themoviedb.org/3/movie/popular"
     api_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MTE4Y2NkODY1MWUyMDczOWZhYTRlMzU4Y2I2ZDIwZCIsInN1YiI6IjVmMDU2OGQwMjBhZjc3MDAzNWU3N2IzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VnK58vvU8DOSdgzhlxiHt-PfHTwIVpsXelEW4k47kgA"
