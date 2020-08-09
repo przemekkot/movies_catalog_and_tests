@@ -56,17 +56,8 @@ def test_get_single_movie_cast(monkeypatch):
     # Wynik wywołania zapytania do API
     response = requests_mock.return_value
     # Przysłaniamy wynik wywołania metody .json()
-    response.json()["cast"][:10].return_value = mock_actor_details
+    response.json.return_value = {'cast': mock_actor_details}
     monkeypatch.setattr("tmdb_client.requests.get", requests_mock)
     # Dla przykładu bierzemy movie_id 497, to jest "Zielona Mila"
     actor_details = tmdb_client.get_single_movie_cast(movie_id=497, number=10)
     assert actor_details == mock_actor_details
-
-
-"""
-def test_get_single_movie_cast(monkeypatch):
-    movie_id = 497
-    expected_number = 10
-    some_number = tmdb_client.get_single_movie_cast(movie_id, number=10)
-    assert expected_number in some_number
-"""
