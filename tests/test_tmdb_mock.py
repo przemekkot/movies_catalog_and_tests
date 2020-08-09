@@ -48,9 +48,7 @@ def test_get_movie_images(monkeypatch):
 
 def test_get_single_movie_cast(monkeypatch):
     # Lista, którą będzie zwracać przysłonięte "zapytanie do API"
-    #mock_actor_details = ['name', 'character']
     mock_actor_details = ['cast_id', 'character', 'credit_id', 'gender']
-    #mock_actor_details = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     
     requests_mock = Mock()
     # Wynik wywołania zapytania do API
