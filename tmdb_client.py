@@ -71,7 +71,7 @@ def get_movie_images(movie_id):
     response = requests.get(endpoint, headers=headers)
     return response.json()
 
-
+"""
 def get_movies_list(list_type):
     endpoint = f"https://api.themoviedb.org/3/movie/{list_type}"
     api_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MTE4Y2NkODY1MWUyMDczOWZhYTRlMzU4Y2I2ZDIwZCIsInN1YiI6IjVmMDU2OGQwMjBhZjc3MDAzNWU3N2IzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VnK58vvU8DOSdgzhlxiHt-PfHTwIVpsXelEW4k47kgA"
@@ -81,5 +81,11 @@ def get_movies_list(list_type):
     response = requests.get(endpoint, headers=headers)
     response.raise_for_status()
     return response.json()
+"""
+#Ta funkcja jest tu umieszczona na potrzeby zadania z modulu 14.3
 
+def get_movies_list(list_type):
+   return call_tmdb_api(f"movie/{list_type}")
+
+#koniec funkcji umieszczonej na potrzeby zadania z modulu 14.3
 
